@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyun Sitesi</panel-1></title>
+    <link rel="stylesheet" href="yapımcılar.css">
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <div class="logo">
+            <a href="#">OldGameX</a>
+        </div>
+        <ul>
+            <li><a href="index.php">Ana Sayfa</a></li>
+            <li><a href="hakkımızda.php">Hakkımızda</a></li>
+            <li><a href="yapımcılar.php">Yapımcılar</a></li>
+            <li><a href="iletişim.php">İletişim</a></li>
+        </ul>
+    </div>
+    <div class="center">
+        <h2>Berkay Alçı</h2>
+        </div>
+    </div>
+</div>    
+    
+</body>
+</html>
