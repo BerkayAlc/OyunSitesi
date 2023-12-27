@@ -1,0 +1,70 @@
+using System;
+using System.Threading;
+
+class Program
+{
+    static int playerPosition = 0;
+    static int targetPosition = 10;
+    static bool isGameOver = false;
+
+    static void Main()
+    {
+        Console.WriteLine("Kolay Oyun - Topu hedefe taşı!");
+
+        while (!isGameOver)
+        {
+            DrawGame();
+            GetUserInput();
+            MovePlayer();
+            CheckCollision();
+            Thread.Sleep(100); // Oyunun hızını ayarlamak için kısa bir gecikme
+            Console.Clear();
+        }
+
+        Console.WriteLine("Oyun bitti!");
+    }
+
+    static void DrawGame()
+    {
+        Console.WriteLine(new string('-', targetPosition) + "H" + new string('-', Console.WindowWidth - targetPosition - 1));
+        Console.WriteLine(new string(' ', playerPosition) + "O");
+    }
+
+    static void GetUserInput()
+    {
+        ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+        if (keyInfo.Key == ConsoleKey.LeftArrow && playerPosition > 0)
+        {
+            playerPosition--;
+        }
+        else if (keyInfo.Key == ConsoleKey.RightArrow && playerPosition < Console.WindowWidth - 1)
+        {
+            playerPosition++;
+        }
+        else if (keyInfo.Key == ConsoleKey.Escape)
+        {
+            isGameOver = true;
+        }
+    }
+
+    static void MovePlayer()
+    {
+        // Topu otomatik ilerlet
+        targetPosition--;
+
+        if (targetPosition < 0)
+        {
+            targetPosition = Console.WindowWidth - 1;
+        }
+    }
+
+    static void CheckCollision()
+    {
+        if (playerPosition == targetPosition)
+        {
+            isGameOver = true;
+            Console.WriteLine("Tebrikler! Topu hedefe taşıdınız!");
+        }
+    }
+}
